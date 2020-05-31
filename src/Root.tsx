@@ -36,7 +36,7 @@ export default function Root() {
         <BasicRouter
             routes={routes}
             nameToWindowTitle
-            windowTitle="Basic React App"
+            windowTitle="React Redux App"
             beforeRoutes={beforeRoutes}
             afterRoutes={afterRoutes}
             routesClassName={classes.root}

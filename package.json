@@ -1,5 +1,5 @@
 {
-  "name": "basic-react-template",
+  "name": "react-redux-template",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
