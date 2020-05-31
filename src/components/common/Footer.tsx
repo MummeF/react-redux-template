@@ -2,7 +2,7 @@ import { Button, Grid, makeStyles, useTheme } from "@material-ui/core";
 import HomeIcon from '@material-ui/icons/Home';
 import InfoIcon from '@material-ui/icons/Info';
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-basic-routing";
 
 
 export default function Footer() {
@@ -20,7 +20,7 @@ export default function Footer() {
         footer: {
             textAlign: "center",
         },
-        footerText:{
+        footerText: {
             textAlign: "right",
             paddingRight: "1em",
         }
@@ -37,10 +37,10 @@ export default function Footer() {
                 spacing={3}
             >
                 <Grid item xs className={classes.footer}>
-                    <Button color="secondary" variant="text" startIcon={<HomeIcon />} component={NavLink} to="/">Home</Button>
+                    <Button color="secondary" variant="text" startIcon={<HomeIcon />} component={Link} to="/">Home</Button>
                 </Grid>
                 <Grid item xs className={classes.footer}>
-                    <Button color="secondary" variant="text" startIcon={<InfoIcon />} component={NavLink} to="/about">Über uns</Button>
+                    <Button color="secondary" variant="text" startIcon={<InfoIcon />} component={Link} to="/about">Über uns</Button>
                 </Grid>
             </Grid>
         </div>

@@ -1,8 +1,13 @@
 import { makeStyles, setRef } from "@material-ui/core";
 import React from "react";
-import BasicRouter, { BasicRoute, DynamicRoute } from "react-basic-routing";
-import Header from "./components/common/Header";
+import BasicRouter, { BrowserRouter } from "react-basic-routing";
 import Footer from "./components/common/Footer";
+import Header from "./components/common/Header";
+import { routes } from "./library/Routes";
+import Page404 from "./views/Page404";
+
+
+
 export default function Root() {
     // const theme = useTheme();
     const isMobile = React.useRef(window.innerWidth < 480);
@@ -19,23 +24,26 @@ export default function Root() {
     });
 
     const classes = useStyles();
-    const routes: (BasicRoute | DynamicRoute)[] = [
-
-    ]
-
     const beforeRoutes = (<>
         <Header />
+        <br />
     </>)
     const afterRoutes = (<>
         <Footer />
     </>)
 
     return <>
-        <BasicRouter routes={routes}
+        <BasicRouter
+            routes={routes}
             nameToWindowTitle
+            windowTitle="Basic React App"
             beforeRoutes={beforeRoutes}
             afterRoutes={afterRoutes}
             routesClassName={classes.root}
+            error404={{
+                name: "404",
+                child: <Page404 />
+            }}
         />
     </>
 }
