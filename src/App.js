@@ -3,6 +3,9 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import { grey } from '@material-ui/core/colors';
 import HttpsRedirect from 'react-https-redirect';
 import Root from "./Root"
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { reducer } from './redux/Service';
 
 const theme = createMuiTheme({
   palette: {
@@ -27,13 +30,22 @@ const theme = createMuiTheme({
     },
   }
 });
+
+
+
+
+const store = createStore(reducer);
+
+
 function App() {
   return (
     <>
       <HttpsRedirect>
-        <ThemeProvider theme={theme}>
-          <Root />
-        </ThemeProvider>
+        <Provider store={store}>
+          <ThemeProvider theme={theme}>
+            <Root />
+          </ThemeProvider>
+        </Provider>
       </HttpsRedirect>
     </>
   );
